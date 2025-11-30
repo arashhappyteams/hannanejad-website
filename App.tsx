@@ -31,7 +31,7 @@ function Header() {
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
             <ImageWithFallback 
-              src="/logo.png" 
+              src="/assets/logo.png" 
               alt="Hanna Nejad" 
               className="h-10"
             />
