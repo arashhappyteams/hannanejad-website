@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color palette */
+  --color-blue-50: #f0f4ff;
+  --color-blue-100: #e0eaff;
+  --color-blue-200: #c7d7ff;
+  --color-blue-300: #a5bbff;
+  --color-blue-400: #8197ff;
+  --color-blue-500: #6172ff;
+  --color-blue-600: #4d54ff;
+  --color-blue-700: #3f3bff;
+  --color-blue-800: #2e2bb3;
+  --color-blue-900: #1a1f5c;
+  --color-blue-950: #0f1333;
+
+  --color-coral-50: #fff5f3;
+  --color-coral-100: #ffe8e3;
+  --color-coral-200: #ffd5cb;
+  --color-coral-300: #ffb8a6;
+  --color-coral-400: #ff9072;
+  --color-coral-500: #ff6e4d;
+  --color-coral-600: #ed4822;
+  --color-coral-700: #c83718;
+  --color-coral-800: #a52f18;
+  --color-coral-900: #892c1b;
+  --color-coral-950: #4b1409;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #1f2937;
+  line-height: 1.6;
+  min-width: 320px;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  h4 {
+    font-size: 1.125rem;
+  }
+}
