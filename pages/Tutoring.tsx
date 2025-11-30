@@ -1,5 +1,10 @@
 import { useState } from 'react';
+import emailjs from 'emailjs-com';
 import { Button } from '../components/Button';
+
+const SERVICE_ID = 'service_87ykgff';           // your EmailJS service id
+const TEMPLATE_ID = 'Hanna_tutoring';     // your tutoring template id
+const PUBLIC_KEY = 'mWBffHcCDl_i2TPKC';           // your EmailJS public key
 
 export default function Tutoring() {
   const [formData, setFormData] = useState({
@@ -25,19 +30,20 @@ export default function Tutoring() {
     consent: false,
   });
 
-  const handleChange = (
+    const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    const { name, value, type } = e.target;
+    const target = e.target as HTMLInputElement;
+    const { name, value, type, checked } = target;
+
     if (type === 'checkbox') {
-      const target = e.target as HTMLInputElement;
       if (name === 'subjects') {
-        const newSubjects = target.checked
+        const newSubjects = checked
           ? [...formData.subjects, value]
           : formData.subjects.filter((s) => s !== value);
         setFormData({ ...formData, subjects: newSubjects });
       } else {
-        setFormData({ ...formData, [name]: target.checked });
+        setFormData({ ...formData, [name]: checked });
       }
     } else if (type === 'radio') {
       setFormData({ ...formData, [name]: value });
@@ -46,11 +52,74 @@ export default function Tutoring() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Tutoring form submitted:', formData);
-    alert('Thank you! Your inquiry has been submitted. We will be in touch soon.');
+
+    const templateParams = {
+      parentFirstName: formData.parentFirstName,
+      parentLastName: formData.parentLastName,
+      parentEmail: formData.parentEmail,
+      parentPhone: formData.parentPhone,
+      studentFirstName: formData.studentFirstName,
+      studentGrade: formData.studentGrade,
+      school: formData.school,
+      sessionType: formData.sessionType,
+      platform: formData.platform,
+      address: formData.address,
+      subjects: formData.subjects.join(', '),
+      otherSubject: formData.otherSubject,
+      mainLanguage: formData.mainLanguage,
+      frenchLevel: formData.frenchLevel,
+      otherLanguageNotes: formData.otherLanguageNotes,
+      learningNeeds: formData.learningNeeds,
+      preferredDaysTimes: formData.preferredDaysTimes,
+      startTimeline: formData.startTimeline,
+      howHeard: formData.howHeard,
+      consent: formData.consent ? 'Yes' : 'No',
+      formType: 'Tutoring Inquiry',
+    };
+
+    emailjs
+      .send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      .then(() => {
+        alert('Thank you! Your inquiry has been submitted. We will be in touch soon.');
+
+        // 👉 OPTIONAL: redirect to Home after 1.5s
+        // setTimeout(() => {
+        //   window.location.href = 'https://arashhappyteams.github.io/hannanejad-website/';
+        // }, 1500);
+
+        // Clear the form but stay on the page
+        setFormData({
+          parentFirstName: '',
+          parentLastName: '',
+          parentEmail: '',
+          parentPhone: '',
+          studentFirstName: '',
+          studentGrade: '',
+          school: '',
+          sessionType: '',
+          platform: '',
+          address: '',
+          subjects: [],
+          otherSubject: '',
+          mainLanguage: '',
+          frenchLevel: '',
+          otherLanguageNotes: '',
+          learningNeeds: '',
+          preferredDaysTimes: '',
+          startTimeline: '',
+          howHeard: '',
+          consent: false,
+        });
+      })
+      .catch((error) => {
+        console.error('EmailJS error:', error);
+        alert('There was an error sending your message. Please try again.');
+      });
   };
+
 
   const scrollToForm = () => {
     document.getElementById('tutoring-form')?.scrollIntoView({ behavior: 'smooth' });
