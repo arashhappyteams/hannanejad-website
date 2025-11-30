@@ -1,7 +1,12 @@
 import { useState } from 'react';
+import emailjs from 'emailjs-com';
 import { Button } from '../components/Button';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { Linkedin, FileText } from 'lucide-react';
+
+const SERVICE_ID = 'service_87ykgff';            // your real service id
+const CONTACT_TEMPLATE_ID = 'website_lead_template'; // SAME template ID as Work With Me
+const PUBLIC_KEY = 'mWBffHcCDl_i2TPKC';       // same public key
 
 export default function AboutContact() {
   const [formData, setFormData] = useState({
@@ -18,11 +23,54 @@ export default function AboutContact() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Contact form submitted:', formData);
-    alert('Thank you for your message! We will get back to you soon.');
+
+    const templateParams = {
+      // shared contact info
+      name: formData.name,
+      email: formData.email,
+      phone: '',
+
+      // general contact–specific
+      inquiryType: formData.inquiryType,
+      message: formData.message,
+
+      // opportunity-related fields (empty for this form)
+      organization: '',
+      role: '',
+      opportunityTypes: '',
+      otherOpportunity: '',
+      description: '',
+      location: '',
+      format: '',
+      timeCommitment: '',
+      compensation: '',
+      timeline: '',
+      relevantLinks: '',
+      additionalNotes: '',
+      confirmation: '',
+
+      formType: 'General Contact',
+    };
+
+    emailjs
+      .send(SERVICE_ID, CONTACT_TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      .then(() => {
+        alert('Thank you for your message! We will get back to you soon.');
+        setFormData({
+          name: '',
+          email: '',
+          inquiryType: '',
+          message: '',
+        });
+      })
+      .catch((error) => {
+        console.error('EmailJS error:', error);
+        alert('There was an error sending your message. Please try again.');
+      });
   };
+
 
   const quickSnapshot = [
     'Grade 12 student in West Vancouver',
