@@ -1,6 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-
-@theme {
+:root {
   /* Color palette */
   --color-blue-50: #f0f4ff;
   --color-blue-100: #e0eaff;
@@ -112,7 +114,8 @@ a {
   color: inherit;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
