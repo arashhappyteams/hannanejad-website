@@ -3,7 +3,7 @@ import emailjs from 'emailjs-com';
 import { Button } from '../components/Button';
 
 const SERVICE_ID = 'service_87ykgff';              // your actual service id
-const WORK_TEMPLATE_ID = 'work_with_me_template';    // your Work With Me template id
+const WORK_TEMPLATE_ID = 'website_lead_template';    // your Work With Me template id
 const PUBLIC_KEY = 'mWBffHcCDl_i2TPKC';         // your EmailJS public key
 
 export default function WorkWithMe() {
@@ -48,25 +48,31 @@ export default function WorkWithMe() {
    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const templateParams = {
-      name: formData.name,
-      organization: formData.organization,
-      role: formData.role,
-      email: formData.email,
-      phone: formData.phone,
-      opportunityTypes: formData.opportunityTypes.join(', '),
-      otherOpportunity: formData.otherOpportunity,
-      description: formData.description,
-      location: formData.location,
-      format: formData.format,
-      timeCommitment: formData.timeCommitment,
-      compensation: formData.compensation,
-      timeline: formData.timeline,
-      relevantLinks: formData.relevantLinks,
-      additionalNotes: formData.additionalNotes,
-      confirmation: formData.confirmation ? 'Yes' : 'No',
-      formType: 'Work With Me Inquiry',
-    };
+  const templateParams = {
+    name: formData.name,
+    organization: formData.organization,
+    role: formData.role,
+    email: formData.email,
+    phone: formData.phone,
+    opportunityTypes: formData.opportunityTypes.join(', '),
+    otherOpportunity: formData.otherOpportunity,
+    description: formData.description,
+    location: formData.location,
+    format: formData.format,
+    timeCommitment: formData.timeCommitment,
+    compensation: formData.compensation,
+    timeline: formData.timeline,
+    relevantLinks: formData.relevantLinks,
+    additionalNotes: formData.additionalNotes,
+    confirmation: formData.confirmation ? 'Yes' : 'No',
+
+    // ➕ add these two so the shared template has values
+    inquiryType: '',
+    message: '',
+
+    formType: 'Work With Me Inquiry',
+  };
+
 
     emailjs
       .send(SERVICE_ID, WORK_TEMPLATE_ID, templateParams, PUBLIC_KEY)
