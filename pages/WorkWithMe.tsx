@@ -45,8 +45,10 @@ export default function WorkWithMe() {
     }
   };
 
-   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  console.log('Work With Me submitting with data:', formData);
 
   const templateParams = {
     name: formData.name,
@@ -65,52 +67,43 @@ export default function WorkWithMe() {
     relevantLinks: formData.relevantLinks,
     additionalNotes: formData.additionalNotes,
     confirmation: formData.confirmation ? 'Yes' : 'No',
-
-    // ➕ add these two so the shared template has values
-    inquiryType: '',
-    message: '',
-
     formType: 'Work With Me Inquiry',
   };
 
+  emailjs
+    .send(SERVICE_ID, WORK_TEMPLATE_ID, templateParams, PUBLIC_KEY)
+    .then(() => {
+      console.log('EmailJS success (Work With Me)');
+      alert(
+        'Thank you! Your opportunity has been submitted. We will review it with a parent/guardian.'
+      );
 
-    emailjs
-      .send(SERVICE_ID, WORK_TEMPLATE_ID, templateParams, PUBLIC_KEY)
-      .then(() => {
-        alert(
-          'Thank you! Your opportunity has been submitted. We will review it with a parent/guardian.'
-        );
-
-        // optional redirect, like tutoring:
-        // setTimeout(() => {
-        //   window.location.href = 'https://arashhappyteams.github.io/hannanejad-website/';
-        // }, 1500);
-
-        // clear the form
-        setFormData({
-          name: '',
-          organization: '',
-          role: '',
-          email: '',
-          phone: '',
-          opportunityTypes: [],
-          otherOpportunity: '',
-          description: '',
-          location: '',
-          format: '',
-          timeCommitment: '',
-          compensation: '',
-          timeline: '',
-          relevantLinks: '',
-          additionalNotes: '',
-          confirmation: false,
-        });
-      })
-      .catch((error) => {
-        console.error('EmailJS error:', error);
-        alert('There was an error sending your message. Please try again.');
+      // clear the form (same pattern as tutoring)
+      setFormData({
+        name: '',
+        organization: '',
+        role: '',
+        email: '',
+        phone: '',
+        opportunityTypes: [],
+        otherOpportunity: '',
+        description: '',
+        location: '',
+        format: '',
+        timeCommitment: '',
+        compensation: '',
+        timeline: '',
+        relevantLinks: '',
+        additionalNotes: '',
+        confirmation: false,
       });
-  };
+    })
+    .catch((error) => {
+      console.error('EmailJS error (Work With Me):', error);
+      alert('There was an error sending your message. Please try again.');
+    });
+};
+
 
 
   const scrollToForm = () => {
