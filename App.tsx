@@ -155,14 +155,12 @@ function AppContent() {
       <Footer />
     </div>
   );
+}
 
-  export default function App() {
+export default function App() {
   return (
     <Router>
       <AppContent />
     </Router>
   );
 }
-
-}
-
