@@ -3,9 +3,9 @@ import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
-  const handleBookTutoring = () => {
-    window.location.href = '/tutoring#tutoring-form';
-  };
+  //const handleBookTutoring = () => {
+   // window.location.href = '/tutoring#tutoring-form';
+ // };
 
   const highlights = [
     '100+ hours as a summer camp leader',
@@ -50,7 +50,7 @@ export default function Home() {
                 interests in cognitive sciences, psychology, business, marketing, art, and storytelling.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button onClick={handleBookTutoring}>Book Tutoring</Button>
+                <Button to="/tutoring#tutoring-form">Book Tutoring</Button>
                 <Button variant="secondary" to="/portfolio">
                   Explore My Portfolio
                 </Button>
