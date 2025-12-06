@@ -58,7 +58,7 @@ export default function Home() {
             </div>
             <div>
               <ImageWithFallback
-                src="/assets/hanna-hero.jpg"
+                src="/assets/hanna-hero.png"
                 alt="Portrait of Hanna Nejad"
                 className="w-full h-auto rounded-lg"
               />
