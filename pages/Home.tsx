@@ -63,7 +63,7 @@ export default function Home() {
                 className="w-full h-auto rounded-lg"
               />
               <p className="text-xs text-gray-500 mt-2 text-center">
-                [Portrait of Hanna – replace with real photo]
+                Portrait of Hanna Shoari Nejad
               </p>
             </div>
           </div>
