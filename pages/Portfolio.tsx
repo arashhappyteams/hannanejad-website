@@ -2,6 +2,17 @@ import { Button } from '../components/Button';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { Linkedin, FileText } from 'lucide-react';
 
+const artImages = [
+  '/assets/hanna-art-1.jpg',
+  '/assets/hanna-art-2.jpg',
+  '/assets/hanna-art-3.jpg',
+];
+
+const handwritingImages = [
+  '/assets/hanna-handwriting-1.jpg',
+  '/assets/hanna-handwriting-2.jpg',
+];
+
 export default function Portfolio() {
   const leadership = [
     {
@@ -25,18 +36,6 @@ export default function Portfolio() {
         'Weekly sessions for Grade 8–9 girls to create a safer, friendlier space at school where everyone could participate without pressure.',
     },
   ];
-
-    const artImages = [
-    '/assets/hanna-art-1.jpg',
-    '/assets/hanna-art-2.jpg',
-    '/assets/hanna-art-3.jpg',
-  ];
-
-  const handwritingImages = [
-    '/assets/hanna-handwriting-1.jpg',
-    '/assets/hanna-handwriting-2.jpg',
-  ];
-
 
   return (
     <div>
