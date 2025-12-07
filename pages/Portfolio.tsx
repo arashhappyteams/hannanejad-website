@@ -26,6 +26,18 @@ export default function Portfolio() {
     },
   ];
 
+    const artImages = [
+    '/assets/hanna-art-1.jpg',
+    '/assets/hanna-art-2.jpg',
+    '/assets/hanna-art-3.jpg',
+  ];
+
+  const handwritingImages = [
+    '/assets/hanna-handwriting-1.jpg',
+    '/assets/hanna-handwriting-2.jpg',
+  ];
+
+
   return (
     <div>
       {/* Intro Section */}
@@ -191,25 +203,21 @@ export default function Portfolio() {
           </div>
 
           {/* Handwriting & Notes */}
-          <div>
-            <h3 className="text-gray-900 mb-4">Handwriting & Notes</h3>
-            <p className="text-gray-700 mb-6">
-              A collection of handwritten reflections, notes, and creative journaling.
-            </p>
-            <div className="grid md:grid-cols-2 gap-6">
-              {[1, 2].map((num) => (
-                <div key={num} className="bg-white p-4 rounded-lg border border-gray-200">
-                  <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1748609422318-7301636fb625?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYW5kd3JpdGluZyUyMGpvdXJuYWwlMjBub3Rlc3xlbnwxfHx8fDE3NjQ0NTU1ODd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                    alt={`Handwriting sample ${num}`}
-                    className="w-full h-48 object-cover rounded mb-3"
-                  />
-                  <p className="text-xs text-gray-500 text-center">
-                    [Handwriting sample placeholder {num}]
-                  </p>
-                </div>
-              ))}
-            </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {handwritingImages.map((src, index) => (
+              <div key={index} className="bg-white p-4 rounded-lg border border-gray-200">
+                <ImageWithFallback
+                  src={src}
+                  alt={`Handwriting sample ${index + 1}`}
+                  className="w-full h-48 object-cover rounded mb-3"
+                />
+                <p className="text-xs text-gray-500 text-center">
+                  Handwriting sample {index + 1}
+                </p>
+              </div>
+            ))}
+          </div>
+
           </div>
         </div>
       </section>
