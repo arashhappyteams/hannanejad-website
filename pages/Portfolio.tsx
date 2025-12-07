@@ -149,18 +149,18 @@ export default function Portfolio() {
             <p className="text-gray-700 mb-6">
               Painting and visual art allow me to express ideas that words sometimes can't capture.
             </p>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[1, 2, 3].map((num) => (
-                <div key={num} className="bg-white p-4 rounded-lg border border-gray-200">
+           <div className="grid md:grid-cols-3 gap-6">
+              {artImages.map((src, index) => (
+                <div key={index} className="bg-white p-4 rounded-lg border border-gray-200">
                   <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1717758220144-aae8c59dbd7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGFydCUyMGNvbG9yZnVsJTIwcGFpbnRpbmd8ZW58MXx8fHwxNzY0NDI3NDE1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                    alt={`Art piece ${num}`}
+                    src={src}
+                    alt={`Art piece ${index + 1}`}
                     className="w-full h-48 object-cover rounded mb-3"
                   />
-                  <p className="text-xs text-gray-500 text-center">[Art image placeholder {num}]</p>
-                </div>
-              ))}
-            </div>
+                  <p className="text-xs text-gray-500 text-center">Art piece {index + 1}</p>
+          </div>
+  ))}
+</div>
           </div>
 
           {/* Storytelling & Acting */}
