@@ -154,7 +154,7 @@ export default function AboutContact() {
             </ul>
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/hannanejad/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 bg-blue-900 text-white rounded-lg hover:bg-blue-800 transition-colors"
