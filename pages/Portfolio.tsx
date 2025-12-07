@@ -63,11 +63,15 @@ export default function Portfolio() {
               </li>
               <li className="flex items-start">
                 <span className="text-blue-900 mr-3">•</span>
-                <span className="text-gray-700">Strong averages in math, science, and French immersion</span>
+                <span className="text-gray-700">
+                  Strong averages in math, science, and French immersion
+                </span>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-900 mr-3">•</span>
-                <span className="text-gray-700">Interested in cognitive science and business at university</span>
+                <span className="text-gray-700">
+                  Interested in cognitive science and business at university
+                </span>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-900 mr-3">•</span>
@@ -119,7 +123,10 @@ export default function Portfolio() {
           <h2 className="text-gray-900 mb-8">Leadership & Community</h2>
           <div className="space-y-6">
             {leadership.map((item, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+              <div
+                key={index}
+                className="bg-gray-50 p-6 rounded-lg border border-gray-200"
+              >
                 <h3 className="text-gray-900 mb-3">{item.title}</h3>
                 <p className="text-gray-700">{item.description}</p>
               </div>
@@ -142,7 +149,10 @@ export default function Portfolio() {
             </p>
             <div className="grid md:grid-cols-3 gap-6">
               {[1, 2, 3].map((num) => (
-                <div key={num} className="bg-white p-6 rounded-lg border border-gray-200">
+                <div
+                  key={num}
+                  className="bg-white p-6 rounded-lg border border-gray-200"
+                >
                   <div className="bg-gray-100 h-48 rounded flex items-center justify-center mb-3">
                     <p className="text-gray-600 italic text-center px-4">
                       [Poem snippet placeholder {num}]
@@ -160,26 +170,31 @@ export default function Portfolio() {
             <p className="text-gray-700 mb-6">
               Painting and visual art allow me to express ideas that words sometimes can't capture.
             </p>
-           <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-6">
               {artImages.map((src, index) => (
-                <div key={index} className="bg-white p-4 rounded-lg border border-gray-200">
+                <div
+                  key={index}
+                  className="bg-white p-4 rounded-lg border border-gray-200"
+                >
                   <ImageWithFallback
                     src={src}
                     alt={`Art piece ${index + 1}`}
                     className="w-full h-48 object-cover rounded mb-3"
                   />
-                  <p className="text-xs text-gray-500 text-center">Art piece {index + 1}</p>
-          </div>
-  ))}
-</div>
+                  <p className="text-xs text-gray-500 text-center">
+                    Art piece {index + 1}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Storytelling & Acting */}
           <div className="mb-12">
             <h3 className="text-gray-900 mb-4">Storytelling & Acting</h3>
             <p className="text-gray-700 mb-6">
-              Through storytelling and acting, I explore different perspectives and bring characters
-              to life.
+              Through storytelling and acting, I explore different perspectives and bring
+              characters to life.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white p-4 rounded-lg border border-gray-200">
@@ -204,7 +219,10 @@ export default function Portfolio() {
           {/* Handwriting & Notes */}
           <div className="grid md:grid-cols-2 gap-6">
             {handwritingImages.map((src, index) => (
-              <div key={index} className="bg-white p-4 rounded-lg border border-gray-200">
+              <div
+                key={index}
+                className="bg-white p-4 rounded-lg border border-gray-200"
+              >
                 <ImageWithFallback
                   src={src}
                   alt={`Handwriting sample ${index + 1}`}
@@ -215,8 +233,6 @@ export default function Portfolio() {
                 </p>
               </div>
             ))}
-          </div>
-
           </div>
         </div>
       </section>
@@ -233,12 +249,15 @@ export default function Portfolio() {
               Basic communication in Turkish and Spanish.
             </p>
             <p className="text-gray-700">
-              And if you speak something I don't, I would love to learn your language and cutlure. Growing up between Calgary, Tehran, Toronto, Dubai, Baku, and Vancouver has helped
-              me connect with people from around the world.
+              And if you speak something I don't, I would love to learn your language and culture.
+              Growing up between Calgary, Tehran, Toronto, Dubai, Baku, and Vancouver has helped me
+              connect with people from around the world.
             </p>
           </div>
           <div className="mt-8 text-center">
-            <Button to="/work-with-me" className="text-white">Work With Me</Button>
+            <Button to="/work-with-me" className="text-white">
+              Work With Me
+            </Button>
           </div>
         </div>
       </section>
