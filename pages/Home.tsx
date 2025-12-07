@@ -108,7 +108,7 @@ export default function Home() {
             <div className="bg-white p-4 rounded-lg border border-gray-200">
               <div className="bg-gray-200 h-48 rounded flex items-center justify-center mb-3">
                 <ImageWithFallback
-                  src="/assets/hanna-art-1.png"
+                  src="/assets/hanna-art-1.jpg"
                   alt="Featured art"
                   className="w-full h-full object-cover rounded"
                 />
